@@ -34,14 +34,14 @@ Welcome to the Blog Site API! This API is built using Node.js, Express, and Mong
 
 ## API Endpoints
 
-# Auth
+### Auth
 
 - POST /api/auth/register: Register a new user.
 - POST /api/auth/login: Login and obtain JWT token.
 - GET /api/auth/logout: Logout a user and remove JWT token.
 - GET /api/auth/refetch: Refetch user info when they change.
 
-# Posts
+### Posts
 
 - GET /api/posts: Get all blog posts.
 - GET /api/posts/:userId : Get your own posts
@@ -50,13 +50,13 @@ Welcome to the Blog Site API! This API is built using Node.js, Express, and Mong
 - PUT /api/posts/:id: Update an existing blog post.
 - DELETE /api/posts/:id: Delete a blog post.
 
-# Users
+### Users
 
 - GET /api/users/:id: Get user info.
 - PUT /api/users/:id: Update user info.
 - DELETE /api/users/:id: Delete user.
 
-# Comments
+### Comments
 
 - POST /api/comments/create: Comment on a blog post.
 - GET /api/comments/:postId: Get comments on a blog post.
