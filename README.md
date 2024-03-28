@@ -21,7 +21,7 @@ Welcome to the Blog Site API! This API is built using Node.js, Express, and Mong
 ## Installation
 
 - Clone the repository:
-  git clone https://github.com/johngit23/Tech-Blog-api.git
+  git clone https://github.com/johngit23/Tech-Blog.git
 - Navigate to the project directory:
   cd Tech-Blog-api
 - Install dependencies:
@@ -70,3 +70,6 @@ Contributions are welcome! Feel free to open issues or pull requests for any imp
 ## Acknowledgements
 
 Thank you to the developers of Node.js, Express.js, MongoDB, and all the npm packages used in this project for making development easier and more efficient. And also to my team mate Margaret Tabby who will be helping me with the frontend for this api.
+
+## Contact
+For any inquiries or suggestions, feel free to reach out to jhon.klaus2008@gmail.com.
