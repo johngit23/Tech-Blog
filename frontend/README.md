@@ -15,7 +15,7 @@ This project is a simple blog site frontend developed using React. It allows use
 - Delete comments
 - User profile editing
 - Login and register functionality
-  
+
 ## Technologies Used
 
 - React
@@ -26,14 +26,14 @@ This project is a simple blog site frontend developed using React. It allows use
 ## Setup Instructions
 
 1. Clone the repository to your local machine using the following command:
-             git clone https://github.com/johngit23/Tech-Blog.git
-2- Navigate to the project directory:
+   git clone https://github.com/johngit23/Tech-Blog.git
+   2- Navigate to the project directory:
    cd Tech-Blog/frontend
-3- Install dependencies:
+   3- Install dependencies:
    npm install
-4- Start the development server:
+   4- Start the development server:
    npm start
-Open your web browser and visit http://localhost:5173 to view the blog site.
+   Open your web browser and visit http://localhost:5173 to view the blog site.
 
 ## Usage
 
@@ -44,7 +44,9 @@ Open your web browser and visit http://localhost:5173 to view the blog site.
 - Profile page allows users to edit their personal information.
 
 ## Contributing
+
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
 ## Contact
-For any inquiries or suggestions, feel free to reach out to jhon.klaus2008@gmail.com.
+
+For any inquiries or suggestions, feel free to reach out to jhon.klaus2008@gmail.com, tabbymargaret@gmail.com
