@@ -1,6 +1,6 @@
 import axios from "axios";
 import Posts from "../components/Posts";
-import { IF, URL } from "../url";
+import { URL } from "../url";
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -43,11 +43,9 @@ const Home = () => {
           </div>
         ) : !noResults ? (
           posts.map((post) => (
-            <>
-              <Link to={user ? `/posts/${post._id}` : "/login"} key={post._id}>
-                <Posts key={post._id} post={post} />
-              </Link>
-            </>
+            <Link to={user ? `/posts/${post._id}` : "/login"} key={post._id}>
+              <Posts key={post._id} post={post} />
+            </Link>
           ))
         ) : (
           <h3 className="text-center font-bold mt-16">No posts available</h3>

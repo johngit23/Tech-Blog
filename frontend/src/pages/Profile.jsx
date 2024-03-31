@@ -9,7 +9,6 @@ const Profile = () => {
   const param = useParams().id;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
@@ -17,24 +16,24 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get(URL + "/api/users/" + user._id);
-      setUsername(res.data.username);
-      setEmail(res.data.email);
-      setPassword(res.data.password);
+      setUsername(user.username);
+      setEmail(user.email);
     } catch (err) {
       console.log(err);
     }
   };
 
+  console.log(param);
   const handleUserUpdate = async () => {
     setUpdated(false);
     try {
-      const res = await axios.put(
+      await axios.put(
         URL + "/api/users/" + user._id,
-        { username, email, password },
+        { username, email },
         { withCredentials: true }
       );
       setUpdated(true);
+      window.location.reload();
     } catch (err) {
       console.log(err);
       setUpdated(false);
@@ -43,7 +42,7 @@ const Profile = () => {
 
   const handleUserDelete = async () => {
     try {
-      const res = await axios.delete(URL + "/api/users/" + user._id, {
+      await axios.delete(URL + "/api/users/" + user._id, {
         withCredentials: true,
       });
       setUser(null);
@@ -64,11 +63,11 @@ const Profile = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [param]);
+  }, [user]);
 
   useEffect(() => {
     fetchUserPosts();
-  }, [param]);
+  }, []);
 
   return (
     <div>
@@ -96,7 +95,6 @@ const Profile = () => {
               placeholder="Your email"
               type="email"
             />
-            {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="outline-none px-4 py-2 text-gray-500" placeholder="Your password" type="password"/> */}
             <div className="flex items-center space-x-4 mt-8">
               <button
                 onClick={handleUserUpdate}

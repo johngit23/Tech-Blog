@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import { FaBars } from "react-icons/fa";
 import { useContext, useState } from "react";
 import Menu from "./Menu";
 import { UserContext } from "../context/UserContext";
@@ -24,22 +23,23 @@ const Navbar = () => {
         <Link to="/">TECH_BLOG</Link>
       </h1>
       {path === "/" && (
-        <div className="flex justify-center items-center space-x-0">
-          <p
-            onClick={() =>
-              navigate(prompt ? "?search=" + prompt : navigate("/"))
-            }
-            className="cursor-pointer"
-          >
+        <form
+          className="flex justify-center items-center space-x-0"
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(prompt ? "?search=" + prompt : navigate("/"));
+          }}
+        >
+          <button className="cursor-pointer">
             <BsSearch />
-          </p>
+          </button>
           <input
             onChange={(e) => setPrompt(e.target.value)}
             className="outline-none px-3 "
             placeholder="Search a post"
             type="text"
           />
-        </div>
+        </form>
       )}
       <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
         {user ? (
@@ -54,9 +54,10 @@ const Navbar = () => {
         {user ? (
           <>
             <div onClick={showMenu}>
-              <p className="cursor-pointer relative">
-                <LetteredAvatar name={user.username} />
-              </p>
+              <LetteredAvatar
+                className="cursor-pointer relative"
+                name={user.username}
+              />
               {menu && <Menu />}
             </div>
           </>
@@ -66,13 +67,6 @@ const Navbar = () => {
           </h3>
         )}
       </div>
-
-      {/* <div onClick={showMenu} className="md:hidden text-lg">
-        <p className="cursor-pointer relative">
-          <FaBars />
-        </p>
-        {menu && <Menu />}
-      </div> */}
     </div>
   );
 };

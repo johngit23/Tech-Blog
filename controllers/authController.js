@@ -51,11 +51,17 @@ const logoutUser = async (req, res) => {
 
 const refetchUser = (req, res) => {
   const token = req.cookies.token;
+
   jwt.verify(token, process.env.SECRET, {}, async (err, data) => {
     if (err) {
       return res.status(404).json(err);
     }
-    res.status(200).json(data);
+    User.findById(data._id)
+      .then((user) => {
+        console.log("user", user);
+        res.status(200).json(user);
+      })
+      .catch((err) => res.status(404).json(err));
   });
 };
 

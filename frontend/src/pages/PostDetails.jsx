@@ -117,11 +117,9 @@ const PostDetails = () => {
             <p>Categories:</p>
             <div className="flex justify-center items-center space-x-2">
               {post.categories?.map((c, i) => (
-                <>
-                  <div key={i} className="bg-gray-300 rounded-lg px-3 py-1">
-                    {c}
-                  </div>
-                </>
+                <div key={i} className="bg-gray-300 rounded-lg px-3 py-1">
+                  {c}
+                </div>
               ))}
             </div>
           </div>

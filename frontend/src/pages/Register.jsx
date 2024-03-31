@@ -10,7 +10,8 @@ const Register = () => {
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
     try {
       const res = await axios.post(URL + "/api/auth/register", {
         username,
@@ -29,7 +30,7 @@ const Register = () => {
   };
 
   return (
-    <>
+    <form onSubmit={handleRegister}>
       <div className="w-full flex justify-center items-center h-[80vh] ">
         <div className="flex flex-col justify-center items-center space-y-4 w-[80%] md:w-[25%]">
           <h1 className="text-xl font-bold text-left">Create an account</h1>
@@ -52,7 +53,7 @@ const Register = () => {
             placeholder="Enter your password"
           />
           <button
-            onClick={handleRegister}
+            type="submit"
             className="w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black "
           >
             Register
@@ -68,7 +69,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 };
 
