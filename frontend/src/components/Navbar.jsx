@@ -54,9 +54,10 @@ const Navbar = () => {
         {user ? (
           <>
             <div onClick={showMenu}>
-              <p className="cursor-pointer relative">
-                <LetteredAvatar name={user.username} />
-              </p>
+              <LetteredAvatar
+                className="cursor-pointer relative"
+                name={user.username}
+              />
               {menu && <Menu />}
             </div>
           </>
