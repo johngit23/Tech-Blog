@@ -11,7 +11,8 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const res = await axios.post(
         URL + "/api/auth/login",
@@ -26,7 +27,7 @@ const Login = () => {
     }
   };
   return (
-    <>
+    <form onSubmit={handleLogin}>
       <div className="w-full flex justify-center items-center h-[80vh] ">
         <div className="flex flex-col justify-center items-center space-y-4 w-[80%] md:w-[25%]">
           <h1 className="text-xl font-bold text-left">
@@ -45,7 +46,7 @@ const Login = () => {
             placeholder="Enter your password"
           />
           <button
-            onClick={handleLogin}
+            type="submit"
             className="w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black "
           >
             Log in
@@ -61,7 +62,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 };
 
